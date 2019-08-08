@@ -1,7 +1,16 @@
-<div style="text-align:center">
-    <h1>Bienvenido al curso de {{ title }}!</h1>
+<div
+    [ngStyle]="{
+        'text-align': 'center',
+        'background-color': config.fondo,
+        padding: '10px',
+        'margin-bottom': '5px'
+    }"
+>
+    <h1>{{ title }}</h1>
+    <p>{{ descripcion }}</p>
 </div>
-
-<videojuego></videojuego>
+<button (click)="ocultarVideojuegos()" *ngIf="mostrar_videojuegos">Ocultar Videojuegos</button>
+<button (click)="ocultarVideojuegos()" *ngIf="!mostrar_videojuegos">Mostrar Videojuegos</button>
+<videojuego *ngIf="mostrar_videojuegos"></videojuego>
 <zapatillas></zapatillas>
 <cursos></cursos>
